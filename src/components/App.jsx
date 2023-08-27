@@ -55,15 +55,25 @@
 //     </section>
 //   );
 // };
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { RegisterPage } from "./pages/RegisterPage";
 import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { ContactPage } from "./pages/ContactPage";
 import { Layout } from "./layouts/Layout";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "redux/auth/actions";
 
 export const App = () => {
+
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, []);// needs to be check
+
   return (
       <div>
         <Routes>
