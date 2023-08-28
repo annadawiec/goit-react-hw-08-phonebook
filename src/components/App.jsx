@@ -57,13 +57,13 @@
 // };
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { RegisterPage } from "./pages/RegisterPage";
-import { Home } from "./pages/Home";
-import { LoginPage } from "./pages/LoginPage";
-import { ContactPage } from "./pages/ContactPage";
 import { Layout } from "./layouts/Layout";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "redux/auth/actions";
+import { Home } from "pages/Home/Home";
+import { ContactPage } from "pages/ContactPage/ContactPage";
+import { LoginPage } from "pages/LoginPage/LoginPage";
+import { RegisterPage } from "pages/RegisterPage/RegisterPage";
 
 export const App = () => {
 
