@@ -1,32 +1,47 @@
-import { useDispatch } from "react-redux"
-import { NavLink } from "react-router-dom"
-import { logOut } from "redux/auth/actions";
+import { NavLink } from 'react-router-dom';
+import css from './Navigation.module.css';
+import { useAuth } from 'hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/actions';
+
+
 
 
 
 export const Navigation = () => {
-    const dispatch = useDispatch();
+
+    const { isLoggedIn } = useAuth();
+  
+    
+const dispatch = useDispatch();
     
     const handleLogout = () => {
         dispatch(logOut());
     };
 
+
     return (
-        <header>
-            <nav style={{display:"flex", gap: "10px"}}>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/contacts">Contacts</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/register">Register</NavLink>
-              <button onClick={handleLogout}>Log out</button>
-            </nav>
-        </header>
-    )
-}
-
-
-
-
-
-
-
+        <nav>
+            <NavLink className={css.link} to="/">
+                Home
+            </NavLink>
+            {isLoggedIn ? (
+                <>
+                    <NavLink className={css.link} to="/contacts">
+                        Contacts
+                    </NavLink>
+                    <button onClick={handleLogout}>Log out</button>
+                </>
+            ) : (
+                <>
+                    <NavLink className={css.link} to="/login">
+                        Log in
+                    </NavLink>
+                    <NavLink className={css.link} to="/register">
+                        Register
+                    </NavLink>
+                </>
+            )}
+        </nav>
+    );
+};

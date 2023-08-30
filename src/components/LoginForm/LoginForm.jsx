@@ -15,7 +15,7 @@ const form = e.currentTarget;
     password: form.elements.password.value,
   })
   );
-
+  form.reset();
   };
 
 
@@ -29,7 +29,9 @@ const form = e.currentTarget;
       </label>
       <label className={css.label}>
         Password
-        <input type="password" name="password" />
+        <input type="password" name="password" pattern="^.{7,}$"
+          title="Password must contain at least 7 characters."
+          required />
       </label>
           <button className={css.button_login} type="submit">Log in</button>
     </form>
