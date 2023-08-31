@@ -10,8 +10,8 @@ import { NavLink } from 'react-router-dom';
 
   return (
     <div className={css.wrapper}>
-      <p className={css.username}>{user.name}, welcome in your personal PhoneBook</p>
-      <p><NavLink to="/contacts">Your contacts</NavLink></p>
+      <p className={css.username}>{user.name}, welcome in your personal PhoneBook.</p>
+      <p><NavLink className={css.username} to="/contacts">Go ahed, check Your contacts</NavLink></p>
     </div>
   );
 };

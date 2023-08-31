@@ -1,0 +1,16 @@
+.delete {
+            margin-top: 50px;
+            height: 50px;
+            width: 100%;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            font-weight: 500px;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(to left, #a445b2, #fa4299);
+        }
+    
+.delete:hover {
+            background: linear-gradient(to right, #a445b2, #fa4299);
+}

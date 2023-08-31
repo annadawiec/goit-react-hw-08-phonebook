@@ -1,21 +1,21 @@
 import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
+import { Button } from '@mui/material';
 
 export const ContactList = ({ contacts, handleDelete }) => (
-  <ul className={css.list_contact}>
+  <ul className={css.list}>
     {contacts.map((contact, id) => (
       <li key={id} className={css.item_contact}>
-        <p className={css.name_contact}>
+        <span className={css.name_contact}>
           {contact.name} {contact.number}
-        </p>
-        <button
-          className={css.button_delete}
+        </span>
+          <Button variant="contained" size="small"
           type="button"
           onClick={() => handleDelete(contact.id)}
         >
           {' '}
           Delete{' '}
-        </button>
+        </Button>
       </li>
     ))}
   </ul>
